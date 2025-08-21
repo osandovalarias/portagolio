@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#343a40">
+    <title>Portafolio Profesional - Omar Sandoval Arias</title>
+    
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="css/reset.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    
+    <style>
+        /* Estilos adicionales específicos */
+        .profile-img {
+            max-width: 280px;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+        .code-window {
+            width: 100%;
+            height: 100%;
+            background: #1e1e1e;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .window-header {
+            background: #2d2d2d;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #3e3e3e;
+        }
+        .window-buttons {
+            display: flex;
+            gap: 6px;
+        }
+        .window-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .window-button.close { background: #ff5f56; }
+        .window-button.minimize { background: #ffbd2e; }
+        .window-button.maximize { background: #27ca3f; }
+        .window-title {
+            color: #969696;
+            font-size: 11px;
+            margin-left: 10px;
+            font-family: monospace;
+        }
+        .code-content {
+            flex: 1;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+            color: #d4d4d4;
+            overflow: hidden;
+        }
+        .code-line {
+            display: block;
+            margin-bottom: 3px;
+        }
+        .code-tag { color: #569cd6; }
+        .code-attr { color: #9cdcfe; }
+        .code-value { color: #ce9178; }
+        .code-comment { color: #6a9955; }
+        .code-text { color: #d4d4d4; }
+        .hero-section {
+            background: linear-gradient(135deg, #343a40 0%, #6c757d 100%);
+            color: white;
+            padding-top: 100px;
+            padding-bottom: 60px;
+        }
+        .hero-image {
+            background-color: #495057;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 10px;
+        }
+        .highlight-card {
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .highlight-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-top: 1.5rem;
+        }
+        .project-card {
+            transition: transform 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        .project-card img {
+            transition: transform 0.5s ease;
+            height: 200px;
+            object-fit: cover;
+            background-color: #dee2e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+        .testimonial-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #0d6efd;
+        }
+        .text-center .section-title:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .about-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        .about-list li:before {
+            content: "•";
+            color: #0d6efd;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info div {
+            margin-bottom: 10px;
+        }
+        /* Nuevos estilos para mantener el título en una línea */
+        .hero-title {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+        }
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px;">
+                    <span class="text-white fw-bold">OS</span>
+                </div>
+                <span class="brand-text">Omar Sandoval Arias </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio"><i class="fas fa-home me-1"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proyectos.html"><i class="fas fa-code me-1"></i> Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="habilidades.html"><i class="fas fa-cogs me-1"></i> Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experiencia.html"><i class="fas fa-briefcase me-1"></i> Experiencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html"><i class="fas fa-envelope me-1"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header id="inicio" class="hero-section">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="display-4 fw-bold mb-4 hero-title">Hola, soy <span class="text-primary">Omar Sandoval Arias</span></h1>
+                    <p class="lead mb-4">Administrador Público, Contador Auditor y Desarrollador de Software</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="proyectos.html" class="btn btn-primary btn-lg px-4">
+                            <i class="fas fa-eye me-2"></i>Ver mis proyectos
+                        </a>
+                        <a href="contacto.html" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-paper-plane me-2"></i>Contáctame
+                        </a>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi" class="py-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <div class="profile-img mx-auto">
+                        <div class="code-window">
+                            <div class="window-header">
+                                <div class="window-buttons">
+                                    <div class="window-button close"></div>
+                                    <div class="window-button minimize"></div>
+                                    <div class="window-button maximize"></div>
+                                </div>
+                                <div class="window-title">profile.js</div>
+                            </div>
+                            <div class="code-content">
+                                <span class="code-line"><span class="code-tag">const</span> <span class="code-attr">developer</span> = {</span>
+                                <span class="code-line">  <span class="code-attr">name</span>: <span class="code-value">'Omar Sandoval'</span>,</span>
+                                <span class="code-line">  <span class="code-attr">title</span>: <span class="code-value">'Full Stack Developer'</span>,</span>
+                                <span class="code-line">  <span class="code-attr">experience</span>: <span class="code-value">20</span> + <span class="code-value">' años'</span>,</span>
+                                <span class="code-line">  <span class="code-attr">skills</span>: [</span>
+                                <span class="code-line">    <span class="code-value">'JavaScript'</span>,</span>
+                                <span class="code-line">    <span class="code-value">'HTML/CSS'</span>,</span>
+                                <span class="code-line">    <span class="code-value">'C#'</span>,</span>
+                                <span class="code-line">    <span class="code-value">'MySQL'</span>,</span>
+                                <span class="code-line">    <span class="code-value">'Bootstrap'</span></span>
+                                <span class="code-line">  ],</span>
+                                <span class="code-line">  <span class="code-attr">specialties</span>: [</span>
+                                <span class="code-line">    <span class="code-value">'Web Apps'</span>,</span>
+                                <span class="code-line">    <span class="code-value">'Business Systems'</span>,</span>
+                                <span class="code-line">    <span class="code-value">'Financial Software'</span></span>
+                                <span class="code-line">  ]</span>
+                                <span class="code-line">};</span>
+                                <span class="code-line"><span class="code-comment">// Transformando ideas en código</span></span>
+                                <span class="code-line"><span class="code-comment">// desde 2003</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="section-title mb-4">Sobre <span class="text-primary">Mí</span></h2>
+                    <p class="lead">Profesional multidisciplinario con más de 20 años de experiencia en el sector público y privado.</p>
+                    <p>Como Administrador Público y Contador Auditor, he desarrollado una amplia experiencia en gestión financiera y administrativa. Actualmente, estoy cursando el tercer año de Ingeniería en Informática, combinando mis conocimientos previos con el desarrollo de soluciones tecnológicas innovadoras.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled about-list">
+                                <li><strong>Nombre:</strong> Omar Patricio Sandoval Arias</li>
+                                <li><strong>Experiencia:</strong> 20+ años</li>
+                                <li><strong>Email:</strong> osandovala@gmail.com</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled about-list">
+                                <li><strong>Especialidad:</strong> Desarrollo Full Stack</li>
+                                <li><strong>Teléfono:</strong> +56 9 5341 1982</li>
+                                <li><strong>Sitio Web:</strong> softrinet.cl</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Destacados -->
+    <section id="destacados" class="py-5">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Mis <span class="text-primary">Destacados</span></h2>
+                <p class="section-subtitle">Algunos de mis logros y experiencias más relevantes</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Tarjeta 1 -->
+                <div class="col-md-4">
+                    <div class="card highlight-card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title">20+ Años Experiencia</h3>
+                            <p class="card-text">En el Instituto de Previsión Social, coordinando áreas financieras y desarrollando sistemas internos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta 2 -->
+                <div class="col-md-4">
+                    <div class="card highlight-card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title">20+ Declaraciones</h3>
+                            <p class="card-text">De renta anuales para personas naturales y empresas como Contador Auditor independiente.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tarjeta 3 -->
+                <div class="col-md-4">
+                    <div class="card highlight-card h-100">
+                        <div class="card-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h3 class="card-title">5+ Sistemas Desarrollados</h3>
+                            <p class="card-text">Aplicaciones web para gestión empresarial, utilizando tecnologías modernas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Proyectos Recientes -->
+    <section id="proyectos-recientes" class="py-5 bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Proyectos <span class="text-primary">Recientes</span></h2>
+                <p class="section-subtitle">Algunos de mis trabajos más recientes en desarrollo de software</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Proyecto 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100">
+                        <div class="card-img-top">
+                            <i class="fas fa-tools fa-5x" style="height: 200px; display: flex; align-items: center; justify-content: center; color: #6c757d;"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="project-tags mb-3">
+                                <span class="badge bg-primary">HTML5</span>
+                                <span class="badge bg-info">CSS3</span>
+                                <span class="badge bg-warning">JavaScript</span>
+                                <span class="badge bg-secondary">MySQL</span>
+                            </div>
+                            <h3 class="card-title">Sistema de Registro de Mantenciones</h3>
+                            <p class="card-text">Sistema desarrollado para HGT Tour para gestionar el registro y control de mantenciones de su flota de transporte minero.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="proyecto-detalle.html" class="btn btn-sm btn-outline-primary">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100">
+                        <div class="card-img-top">
+                            <i class="fas fa-boxes fa-5x" style="height: 200px; display: flex; align-items: center; justify-content: center; color: #6c757d;"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="project-tags mb-3">
+                                <span class="badge bg-primary">C#</span>
+                                <span class="badge bg-success">.NET</span>
+                                <span class="badge bg-secondary">MySQL</span>
+                            </div>
+                            <h3 class="card-title">Sistema de Inventario</h3>
+                            <p class="card-text">Aplicación de escritorio para gestión de inventario desarrollada para HGT Tour, con control de stock и reportes.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="proyecto-detalle.html" class="btn btn-sm btn-outline-primary">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Proyecto 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100">
+                        <div class="card-img-top">
+                            <i class="fas fa-balance-scale fa-5x" style="height: 200px; display: flex; align-items: center; justify-content: center; color: #6c757d;"></i>
+                        </div>
+                        <div class="card-body">
+                            <div class="project-tags mb-3">
+                                <span class="badge bg-primary">C#</span>
+                                <span class="badge bg-success">.NET</span>
+                                <span class="badge bg-info">SQL Server</span>
+                            </div>
+                            <h3 class="card-title">Sistema de Curadurías y Poderes</h3>
+                            <p class="card-text">Sistema desarrollado para el Instituto de Previsión Social para gestionar procesos de curadurías y poderes legales.</p>
+                        </div>
+                        <div class="card-footer bg-transparent border-0">
+                            <a href="proyecto-detalle.html" class="btn btn-sm btn-outline-primary">Ver Detalles</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                <a href="proyectos.html" class="btn btn-primary btn-lg px-4">
+                    <i class="fas fa-list me-2"></i>Ver Todos los Proyectos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto Rápido -->
+    <section id="contacto-rapido" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="mb-4">¿Listo para comenzar tu proyecto?</h2>
+                    <p class="lead mb-4">Contáctame hoy mismo y hablemos sobre cómo puedo ayudarte a hacer realidad tu idea.</p>
+                    <div class="contact-info">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope me-3"></i>
+                            <span>osandovala@gmail.com</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone me-3"></i>
+                            <span>+56 9 5341 1982</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-globe me-3"></i>
+                            <span>softrinet.cl</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <form id="quickContactForm" class="needs-validation" novalidate>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="quickName" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="quickName" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa tu nombre.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="quickEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="quickEmail" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa un email válido.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="quickMessage" class="form-label">Mensaje</label>
+                                <textarea class="form-control" id="quickMessage" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor ingresa un mensaje.
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="h5 mb-3">Omar Sandoval</h3>
+                    <p>Profesional multidisciplinario con experiencia en administración pública, contabilidad y desarrollo de software.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="h5 mb-3">Enlaces Rápidos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#inicio" class="text-white-50">Inicio</a></li>
+                        <li class="mb-2"><a href="proyectos.html" class="text-white-50">Proyectos</a></li>
+                        <li class="mb-2"><a href="habilidades.html" class="text-white-50">Habilidades</a></li>
+                        <li class="mb-2"><a href="experiencia.html" class="text-white-50">Experiencia</a></li>
+                        <li><a href="contacto.html" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Contacto</h3>
+                    <div class="contact-info">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            <span>osandovala@gmail.com</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-phone me-2"></i>
+                            <span>+56 9 5341 1982</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-globe me-2"></i>
+                            <span>softrinet.cl</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-download me-2"></i>Descargar CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">&copy; 2023 Omar Sandoval. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">Diseñado y desarrollado con <i class="fas fa-heart text-danger"></i> por Omar Sandoval</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/56953411982" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script personalizado -->
+    <script src="js/app.js"></script>
+    
+    <!-- Script para validación de formulario -->
+    <script>
+    // Validación del formulario de contacto rápido
+    (function() {
+        'use strict';
+        const form = document.getElementById('quickContactForm');
+        
+        form.addEventListener('submit', function(event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            form.classList.add('was-validated');
+            
+            if (form.checkValidity()) {
+                // Simular envío del formulario
+                alert('Gracias por tu mensaje. Me pondré en contacto contigo pronto.');
+                form.reset();
+                form.classList.remove('was-validated');
+                event.preventDefault();
+            }
+        }, false);
+    })();
+    
+    // Inicialización de tooltips de Bootstrap
+    document.addEventListener('DOMContentLoaded', function() {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mi Experiencia | Portafolio Omar Sandoval</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        .timeline:before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #0d6efd;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        .timeline-date {
+            position: absolute;
+            left: -3rem;
+            top: 0;
+            background-color: #0d6efd;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .timeline-content {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .timeline-content h3 {
+            color: #0d6efd;
+        }
+        .timeline-content h4 {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .timeline-content ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .timeline-content ul li {
+            margin-bottom: 0.5rem;
+        }
+        .education-card, .certification-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        .education-card:hover, .certification-card:hover {
+            transform: translateY(-5px);
+        }
+        .education-icon, .certification-badge {
+            width: 50px;
+            height: 50px;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .certification-badge {
+            background-color: #ffc107;
+            margin: 0 auto 1rem;
+        }
+        .badge {
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .cert-details {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <span class="brand-text">Omar Sandoval</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proyectos.html"><i class="fas fa-code me-1"></i> Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="habilidades.html"><i class="fas fa-cogs me-1"></i> Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="experiencia.html"><i class="fas fa-briefcase me-1"></i> Experiencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html"><i class="fas fa-envelope me-1"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado de página -->
+    <header class="page-header py-5 mt-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Mi <span class="text-primary">Experiencia</span></h1>
+            <p class="lead">Trayectoria profesional y formación académica</p>
+        </div>
+    </header>
+
+    <!-- Experiencia laboral -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title mb-5 text-center">Experiencia <span class="text-primary">Laboral</span></h2>
+            
+            <!-- Timeline -->
+            <div class="timeline">
+                <!-- Experiencia 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2003 - Presente</div>
+                    <div class="timeline-content">
+                        <h3>Ejecutivo de Finanzas / Coordinador de Finanzas</h3>
+                        <h4>Instituto de Previsión Social (IPS)</h4>
+                        <ul>
+                            <li>Gestión y Coordinación de Áreas Financieras</li>
+                            <li>Desarrollo de sistemas internos para optimizar procesos administrativos</li>
+                            <li>Implementación de sistemas de curadurías y poderes manuales</li>
+                            <li>Desarrollo de sistema para entrega de insumos de bodega</li>
+                        </ul>
+                        <div class="technologies">
+                            <span class="badge bg-primary">Gestión Financiera</span>
+                            <span class="badge bg-success">Desarrollo de Sistemas</span>
+                            <span class="badge bg-info">Coordinación de Equipos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experiencia 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2010 - Presente</div>
+                    <div class="timeline-content">
+                        <h3>Contador Auditor Independiente</h3>
+                        <h4>Servicios Contables y Tributarios</h4>
+                        <ul>
+                            <li>Elaboración de declaraciones de renta para más de 20 personas naturales</li>
+                            <li>Declaraciones de renta para 2 empresas annually</li>
+                            <li>Asesoría tributaria y contable</li>
+                            <li>Gestión de documentación fiscal</li>
+                        </ul>
+                        <div class="technologies">
+                            <span class="badge bg-primary">Contabilidad</span>
+                            <span class="badge bg-success">Tributación</span>
+                            <span class="badge bg-info">Asesoría Financiera</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Experiencia 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2020 - Presente</div>
+                    <div class="timeline-content">
+                        <h3>Desarrollador de Software</h3>
+                        <h4>Softrinet</h4>
+                        <ul>
+                            <li>Desarrollo de sistema de registro de mantenciones para HGT Tour</li>
+                            <li>Desarrollo de sistema de inventario para HGT Tour</li>
+                            <li>Creación de sistema para centro médico de gestión de citas</li>
+                            <li>Mantenimiento y actualización de sitio web softrinet.cl</li>
+                        </ul>
+                        <div class="technologies">
+                            <span class="badge bg-primary">HTML/CSS</span>
+                            <span class="badge bg-success">Visual Studio</span>
+                            <span class="badge bg-info">MySQL</span>
+                            <span class="badge bg-warning">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educación -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title mb-5 text-center">Formación <span class="text-primary">Académica</span></h2>
+            
+            <div class="row g-4">
+                <!-- Educación 1 -->
+                <div class="col-md-6">
+                    <div class="education-card p-4 h-100">
+                        <div class="education-header d-flex align-items-center mb-3">
+                            <div class="education-icon me-3">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-0">Ingeniería en Informática</h3>
+                                <p class="mb-0 text-muted">Instituto IPCHILE</p>
+                            </div>
+                        </div>
+                        <div class="education-body">
+                            <p class="mb-2"><i class="far fa-calendar me-2"></i>2021 - Presente (3er año)</p>
+                            <p class="mb-0">Enfoque en desarrollo de software, bases de datos y arquitectura de sistemas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Educación 2 -->
+                <div class="col-md-6">
+                    <div class="education-card p-4 h-100">
+                        <div class="education-header d-flex align-items-center mb-3">
+                            <div class="education-icon me-3">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-0">Contador Auditor</h3>
+                                <p class="mb-0 text-muted">Instituto IPLACEX</p>
+                            </div>
+                        </div>
+                        <div class="education-body">
+                            <p class="mb-2"><i class="far fa-calendar me-2"></i>2016 - 2020</p>
+                            <p class="mb-0">Formación en contabilidad, auditoría, tributación y gestión financiera.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Educación 3 -->
+                <div class="col-md-6">
+                    <div class="education-card p-4 h-100">
+                        <div class="education-header d-flex align-items-center mb-3">
+                            <div class="education-icon me-3">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-0">Administrador Público</h3>
+                                <p class="mb-0 text-muted">Universidad Bolivarina</p>
+                            </div>
+                        </div>
+                        <div class="education-body">
+                            <p class="mb-2"><i class="far fa-calendar me-2"></i>2006 - 2010</p>
+                            <p class="mb-0">Formación en administración pública, políticas públicas y gestión gubernamental.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificaciones -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title mb-5 text-center">Mis <span class="text-primary">Certificaciones</span></h2>
+            
+            <div class="row g-4">
+                <!-- Certificación 1 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Auditoría Tributaria</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>324 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 2 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Control de Gestión</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>414 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.1</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 3 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Costos y Presupuestos</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>234 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.1</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 4 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Gestión Contable</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>360 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 5 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Gestión Empresarial</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>432 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.9</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 6 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Gestión Financiera</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>234 horas</strong></p>
+                            <p class="mb-1">Calificación: 5.9</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 7 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en IFRS</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>144 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 8 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Planificación Estratégica</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>252 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificación 9 -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Diplomado en Tributación</h3>
+                        <p class="text-muted">IPLACEX - 2024</p>
+                        <div class="cert-details">
+                            <p class="mb-1"><strong>252 horas</strong></p>
+                            <p class="mb-1">Calificación: 6.2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificaciones anteriores (mantenidas) -->
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Desarrollo Web con HTML5, CSS3 y JavaScript</h3>
+                        <p class="text-muted">Plataforma de Cursos Online - 2022</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Bases de Datos MySQL</h3>
+                        <p class="text-muted">Instituto de Tecnología - 2021</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="certification-card p-4 h-100 text-center">
+                        <div class="certification-badge mb-3">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Desarrollo con Visual Studio</h3>
+                        <p class="text-muted">Microsoft Learning - 2020</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="h5 mb-3">Omar Sandoval</h3>
+                    <p>Profesional multidisciplinario con experiencia en administración pública, contabilidad y desarrollo de software.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="h5 mb-3">Enlaces Rápidos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50">Inicio</a></li>
+                        <li class="mb-2"><a href="proyectos.html" class="text-white-50">Proyectos</a></li>
+                        <li class="mb-2"><a href="habilidades.html" class="text-white-50">Habilidades</a></li>
+                        <li class="mb-2"><a href="experiencia.html" class="text-white-50">Experiencia</a></li>
+                        <li><a href="contacto.html" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Contacto</h3>
+                    <div class="contact-info">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            <span>osandovala@gmail.com</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-phone me-2"></i>
+                            <span>+56 9 5341 1982</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-globe me-2"></i>
+                            <span>softrinet.cl</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-download me-2"></i>Descargar CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">&copy; 2025 Omar Sandoval. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">Diseñado y desarrollado con <i class="fas fa-heart text-danger"></i> por Omar Sandoval</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/56953411982" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

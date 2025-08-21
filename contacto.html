@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Contacto | Portafolio Omar Sandoval</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .contact-info-card {
+            border-left: 4px solid #0d6efd;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .contact-form-card {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        .social-link:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-3px);
+        }
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+        .alert-container {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            z-index: 1050;
+            min-width: 300px;
+        }
+        .spinner-border-sm {
+            width: 1rem;
+            height: 1rem;
+        }
+        .was-validated .form-control:invalid, .form-control.is-invalid {
+            border-color: #dc3545;
+            padding-right: calc(1.5em + 0.75rem);
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath d='m5.8 3.6.4.4.4-.4'/%3e%3cpath d='M6 7v2'/%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right calc(0.375em + 0.1875rem) center;
+            background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+        }
+        .was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
+            padding-right: calc(1.5em + 0.75rem);
+            background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <span class="brand-text">Omar Sandoval</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home me-1"></i> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="proyectos.html"><i class="fas fa-code me-1"></i> Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="habilidades.html"><i class="fas fa-cogs me-1"></i> Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="experiencia.html"><i class="fas fa-briefcase me-1"></i> Experiencia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contacto.html"><i class="fas fa-envelope me-1"></i> Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenedor para alertas -->
+    <div class="alert-container"></div>
+
+    <!-- Encabezado de página -->
+    <header class="page-header py-5 mt-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Contácta<span class="text-primary">me</span></h1>
+            <p class="lead">¿Tienes un proyecto en mente? Hablemos sobre cómo puedo ayudarte</p>
+        </div>
+    </header>
+
+    <!-- Sección de contacto -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5 mb-4 mb-lg-0">
+                    <h2 class="section-title mb-4">Información de <span class="text-primary">Contacto</span></h2>
+                    <p class="mb-4">Si deseas ponerte en contacto conmigo para oportunidades de trabajo, colaboraciones o simplemente para saludar, no dudes en usar cualquiera de los siguientes medios.</p>
+                    
+                    <div class="contact-info-card p-4 mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="contact-icon me-3">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-0">Ubicación</h3>
+                                <p class="mb-0">Rancagua, Chile</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card p-4 mb-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="contact-icon me-3">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-0">Email</h3>
+                                <p class="mb-0">osandovala@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="contact-icon me-3">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="h5 mb-0">Teléfono</h3>
+                                <p class="mb-0">+56 9 5341 1982</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links mt-4">
+                        <a href="https://wa.me/56953411982" class="social-link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-7">
+                    <div class="contact-form-card p-4">
+                        <h2 class="section-title mb-4">Formulario de <span class="text-primary">Contacto</span></h2>
+                        <form id="contactForm" class="needs-validation" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="name" class="form-label">Nombre Completo *</label>
+                                    <input type="text" class="form-control" id="name" required minlength="2" maxlength="50">
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa tu nombre (mínimo 2 caracteres).
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un email válido.
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="subject" class="form-label">Asunto *</label>
+                                    <input type="text" class="form-control" id="subject" required minlength="5" maxlength="100">
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un asunto (mínimo 5 caracteres).
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <label for="message" class="form-label">Mensaje *</label>
+                                    <textarea class="form-control" id="message" rows="5" required minlength="10" maxlength="1000"></textarea>
+                                    <div class="invalid-feedback">
+                                        Por favor ingresa un mensaje (mínimo 10 caracteres).
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Suscribirme al boletín informativo
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary px-4" id="submitButton">
+                                        <i class="fas fa-paper-plane me-2"></i>Enviar Mensaje
+                                    </button>
+                                    <div class="spinner-border spinner-border-sm text-primary d-none" role="status" id="loadingSpinner">
+                                        <span class="visually-hidden">Cargando...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="py-0">
+        <div class="container-fluid px-0">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212997.1566417364!2d-70.83218719999999!3d-34.1701329!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96634483b948c67f%3A0x8a16d50b4a0a47e0!2sRancagua%2C%20O&#39;Higgins%2C%20Chile!5e0!3m2!1sen!2sus!4v1712345678901!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="h5 mb-3">Omar Sandoval</h3>
+                    <p>Profesional multidisciplinario con experiencia en administración pública, contabilidad y desarrollo de software.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="h5 mb-3">Enlaces Rápidos</h3>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white-50">Inicio</a></li>
+                        <li class="mb-2"><a href="proyectos.html" class="text-white-50">Proyectos</a></li>
+                        <li class="mb-2"><a href="habilidades.html" class="text-white-50">Habilidades</a></li>
+                        <li class="mb-2"><a href="experiencia.html" class="text-white-50">Experiencia</a></li>
+                        <li><a href="contacto.html" class="text-white-50">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3 class="h5 mb-3">Contacto</h3>
+                    <div class="contact-info">
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-envelope me-2"></i>
+                            <span>osandovala@gmail.com</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fas fa-phone me-2"></i>
+                            <span>+56 9 5341 1982</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-globe me-2"></i>
+                            <span>softrinet.cl</span>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <a href="#" class="btn btn-outline-light btn-sm">
+                            <i class="fas fa-download me-2"></i>Descargar CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small mb-0">&copy; 2023 Omar Sandoval. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="small mb-0">Diseñado y desarrollado con <i class="fas fa-heart text-danger"></i> por Omar Sandoval</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/56953411982" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+    // Función para mostrar alertas
+    function showAlert(message, type = 'success') {
+        const alertContainer = document.querySelector('.alert-container');
+        const alertId = 'alert-' + Date.now();
+        
+        const alert = document.createElement('div');
+        alert.className = `alert alert-${type} alert-dismissible fade show`;
+        alert.role = 'alert';
+        alert.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+        alert.id = alertId;
+        
+        alertContainer.appendChild(alert);
+        
+        // Auto cerrar después de 5 segundos
+        setTimeout(() => {
+            const bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        }, 5000);
+    }
+
+    // Validación y envío del formulario de contacto
+    (function() {
+        'use strict';
+        const form = document.getElementById('contactForm');
+        const submitButton = document.getElementById('submitButton');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        
+        // Validar campos en tiempo real
+        const fields = form.querySelectorAll('input, textarea');
+        fields.forEach(field => {
+            field.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                } else {
+                    this.classList.remove('is-valid');
+                }
+            });
+        });
+        
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            
+            // Validar todos los campos
+            let isValid = true;
+            fields.forEach(field => {
+                if (!field.checkValidity()) {
+                    field.classList.add('is-invalid');
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                showAlert('Por favor, completa todos los campos requeridos correctamente.', 'danger');
+                form.classList.add('was-validated');
+                return;
+            }
+            
+            // Mostrar spinner de carga
+            submitButton.disabled = true;
+            loadingSpinner.classList.remove('d-none');
+            
+            try {
+                // Simular envío de formulario (reemplazar con tu API real)
+                const formData = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    subject: document.getElementById('subject').value,
+                    message: document.getElementById('message').value,
+                    newsletter: document.getElementById('newsletter').checked
+                };
+                
+                // Simular retardo de red
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Simular error aleatorio (20% de probabilidad)
+                const randomError = Math.random() < 0.2;
+                
+                if (randomError) {
+                    throw new Error('Error de conexión. Por favor intenta nuevamente.');
+                }
+                
+                // Éxito en el envío
+                showAlert('¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.', 'success');
+                form.reset();
+                
+                // Limpiar clases de validación
+                fields.forEach(field => {
+                    field.classList.remove('is-valid', 'is-invalid');
+                });
+                form.classList.remove('was-validated');
+                
+            } catch (error) {
+                // Manejo de errores
+                console.error('Error al enviar el formulario:', error);
+                showAlert(error.message || 'Ha ocurrido un error al enviar el mensaje. Por favor intenta nuevamente.', 'danger');
+                
+            } finally {
+                // Ocultar spinner y habilitar botón
+                submitButton.disabled = false;
+                loadingSpinner.classList.add('d-none');
+            }
+        });
+        
+        // Validación adicional para el email
+        const emailField = document.getElementById('email');
+        emailField.addEventListener('blur', function() {
+            if (this.value && !this.validity.valid) {
+                this.classList.add('is-invalid');
+                showAlert('Por favor ingresa una dirección de email válida.', 'danger');
+            }
+        });
+        
+    })();
+    </script>
+</body>
+</html>
